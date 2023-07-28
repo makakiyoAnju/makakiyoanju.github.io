@@ -1,0 +1,40 @@
+// gets twitch user avatar image
+async function getAvatarUri(data) {
+  let user = data.nick,
+      result = await fetch('https://decapi.me/twitch/avatar/' + user).then(t => t.text()),
+      uri;
+  
+  switch (result) {
+    case `Invalid Twitch user specified: ${user}`:
+      uri = 'https://ko-fi.com/img/anon4.png';
+      break;
+    case `User not found: ${user}`:
+      uri = 'https://ko-fi.com/img/anon6.png';
+      break;
+    default:
+      uri = result;
+  }
+  
+  return uri;
+}
+
+async function getUserColor(user) {
+  let creds = await fetch('https://makakiyoanju.github.io/int/twitch_cred.json').then(r => r.json()), 
+      userId = await fetch(`https://decapi.me/twitch/id/${user}`).then(u => u.text()).catch(er => '#' + md5(user).slice(26));
+  
+  //console.log(userId);
+  let c = await fetch(`https://api.twitch.tv/helix/chat/color?user_id=${userId}`, {
+    "method": 'GET',
+    "headers": {
+      'Client-ID': creds['goals']['id'],
+      'Authorization': "Bearer " + creds['goals']['token']
+    }
+  }).then(b => b.json())
+  .then(({ data }) => {
+    return data[0].color !== "" ? data[0].color : '#' + md5(user).slice(26);
+  }).catch(err => {
+    throw(err);
+  });
+  
+  return c;
+}
