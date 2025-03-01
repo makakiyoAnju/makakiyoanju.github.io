@@ -22,7 +22,7 @@
                 var clientID = $('#clientID').val();
                 var scopes = $('#scopes').val();
   
-                var url = 'https://id.twitch.tv/oauth2/authorize?response_type=token&client_id='+ clientID +'&redirect_uri=https://makakiyoanju.github.io/twitch/&scope=' + encodeURIComponent(scopes);
+                var url = 'https://id.twitch.tv/oauth2/authorize?response_type=token&client_id='+ clientID +'&redirect_uri=https://makakiyoanju.github.io/twitch/oauth/&scope=' + encodeURIComponent(scopes);
   
                 document.location = url;
             }
@@ -65,7 +65,7 @@
                                         <input class="span9" type="text" id="scopes" placeholder="user_read channel_editor (space separated)">
   
                                         <label>Redirect URL:</label>
-                                        <code>https://makakiyoanju.github.io/twitch/</code><br><br>
+                                        <code>https://makakiyoanju.github.io/twitch/oauth</code><br><br>
   
   
   
