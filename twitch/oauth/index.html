@@ -20,13 +20,13 @@
       });
 
       var sendRequest = function (argument) {
-      var clientID = $('#clientID').val();
-      var scopes = $('#scopes').val();
+        var clientID = $('#clientID').val();
+        var scopes = $('#scopes').val();
 
-      var url = 'https://id.twitch.tv/oauth2/authorize?response_type=token&client_id='+ clientID +'&redirect_uri=https://makakiyoanju.github.io/twitch/oauth/&scope=' + encodeURIComponent(scopes);
+        var url = 'https://id.twitch.tv/oauth2/authorize?response_type=token&client_id='+ clientID +'&redirect_uri=https://makakiyoanju.github.io/twitch/oauth/&scope=' + encodeURIComponent(scopes);
 
-      document.location = url;
-    }
+        document.location = url;
+      }
     </script>
   </head>
   <body style="padding-top: 20px;">
