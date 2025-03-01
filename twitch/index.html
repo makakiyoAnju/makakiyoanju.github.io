@@ -6,5 +6,83 @@
         crossorigin="anonymous" 
         referrerpolicy="no-referrer">
     </script>
+    <script type="text/javascript" language="javascript">
+            $(document).ready(function() {
+                var oauthHash = location.hash.substr(1);
+                var accessToken = oauthHash.substr(oauthHash.indexOf('access_token=')).split('&')[0].split('=')[1];
+                
+                if (accessToken) {
+                    $("#infoTable").hide();
+                    $("#passwordTable").show();
+                    $("#tokenDisplay").html(accessToken);
+                }
+            });
+  
+            var sendRequest = function (argument) {
+                var clientID = $('#clientID').val();
+                var scopes = $('#scopes').val();
+  
+                var url = 'https://id.twitch.tv/oauth2/authorize?response_type=token&client_id='+ clientID +'&redirect_uri=https://twitchapps.com/tokengen/&scope=' + encodeURIComponent(scopes);
+  
+                document.location = url;
+            }
+        </script>
   </head>
+  <body style="padding-top: 20px;">
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12">
+                <div style="width:600px;margin:auto;">
+                    <table class="table table-bordered table-striped" id="passwordTable" style="display:none;">
+                        <tbody><tr>
+                            <th>Twitch OAuth Token Generator</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div style="text-align:center;padding-bottom:10px;">
+                                    <p>
+                                        Your OAuth token:
+                                    </p>
+                                    <code id="tokenDisplay"></code>
+                                    <br>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody></table>
+                    <table class="table table-bordered table-striped" id="infoTable">
+                        <tbody><tr>
+                            <th>Twitch OAuth Token Generator</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="well">
+                                        <p>You will need to first register an application in your <a href="https://www.twitch.tv/kraken/oauth2/clients/new" target="_blank">Twitch account settings</a> to obtain a Client ID and enter the Redirect URL below.</p>
+                                        
+                                        <label>Client ID</label>
+                                        <input class="span9" type="text" id="clientID">
+  
+                                        <label>Scopes <small><a href="https://github.com/justintv/Twitch-API/blob/master/authentication.md#scopes" target="_blank">List of available scopes</a></small></label>
+                                        <input class="span9" type="text" id="scopes" placeholder="user_read channel_editor (space separated)">
+  
+                                        <label>Redirect URL:</label>
+                                        <code>https://twitchapps.com/tokengen/</code><br><br>
+  
+  
+  
+                                        <div style="padding-bottom:10px;">
+                                            <input class="btn btn-primary" type="button" value="Connect" onclick="sendRequest();">
+                                        </div>
+  
+                                        <p><small>
+                                            (Technical: This application uses the <a href="https://dev.twitch.tv/docs/v5/guides/authentication/" target="_blank">implicit grant flow</a> for the Twitch API to retrieve your token. This means that your token is only ever visible to your browser and not our server.)
+                                        </small></p>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody></table>
+                </div>
+    </div>
+        </div>
+    </div>
+  </body>
 </html>
