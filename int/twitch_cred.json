@@ -1,6 +1,11 @@
 {
   "goals": {
     "id": "o7ff5jdi3eloih52r9xe0xzgdt4q3r",
+    "secret": "juy27i8tmi72n2c5vlebjy2okcbh8x", 
     "token": "aiuwcw3md73dix6e8qel958drm12qj"
+  },
+  "client": {
+    "id": "o7ff5jdi3eloih52r9xe0xzgdt4q3r",
+    "secret": "juy27i8tmi72n2c5vlebjy2okcbh8x"
   }
 }
