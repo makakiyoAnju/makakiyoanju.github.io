@@ -1,6 +1,6 @@
 let twitch = fetch('https://makakiyoanju.github.io/int/twitchCredentials.json').then(r => r.json()),
-    clientId = twitch['client']['id'];
-    clientSecret = twitch['client']['secret'];
+    clientId = twitch['client']['id'],
+    clientSecret = twitch['client']['secret'],
     scopes = "";
 
 async function getAppAccessToken() {
