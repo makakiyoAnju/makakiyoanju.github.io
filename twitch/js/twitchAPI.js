@@ -23,3 +23,40 @@ async function getUserColor(uid) {
     .then(({ data }) => data[0]['color'])
     .catch(err => { return });
 }
+
+async function getClip(id) {
+  const url ='https://gql.twitch.tv/gql', 
+        head = {
+          'Client-ID': 'kimne78kx3ncx6brgo4mv6wki5h1ko',
+          'Content-Type': 'application/json',
+        }
+        data = `{
+                  "operationName": "VideoAccessToken_Clip",
+                  "variables": { 
+                    "platform": "web",
+                    "slug": "${id}"
+                  },
+                  "extensions": {
+                    "persistedQuery": {
+                      "version": 1,
+                      "sha256Hash": "6fd3af2b22989506269b9ac02dd87eb4a6688392d67d94e41a6886f1e9f5c00f"
+                    }
+                  }
+                }`;
+
+  const json = 
+            await fetch(url, {
+              method: 'POST',
+              headers: head,
+              body: data,
+            })
+            .then(r => r.json());
+
+  let signature = json['data']['clip']['playbackAccessToken']['signature'], 
+      token = encodeURIComponent(json['data']['clip']['playbackAccessToken']['value']), 
+      source = json['data']['clip']['videoQualities'][0]['sourceURL'];
+
+  const clip_url = `${source}?sig=${signature}&token=${token}`;
+
+  return clip_url;
+}
