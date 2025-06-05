@@ -22,6 +22,9 @@
       table {
         text-align: center; 
       }
+      tr {
+        margin: 0.5em 0;
+      }
       th {
         margin: 1em;
         
@@ -65,7 +68,8 @@
         margin: auto;
       }
 
-      div.well > div {
+      div.well > div, 
+      div.result > div {
         margin: 0.8em 0;
       }
 
@@ -107,10 +111,9 @@
                 </tr>
                 <tr>
                   <td>
-                    <div style="text-align: center; padding-bottom: 10px;">
-                      <p>Your OAuth token:</p>
+                    <div class="result" style="text-align: center; padding-bottom: 10px;">
+                      <div>Your OAuth token</div>
                       <code id="tokenDisplay"></code>
-                      <br>
                     </div>
                   </td>
                 </tr>
