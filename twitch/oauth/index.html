@@ -65,12 +65,12 @@
         margin: auto;
       }
 
-      div.well p, 
-      div.well div {
-        margin: 1em 0;
+      div.well > div {
+        margin: 0.8em 0;
       }
 
-      div.well div {
+      div.well div > div {
+        margin: 0.5em 0;
       }
     </style>
     <script type="text/javascript" language="javascript">
@@ -124,19 +124,19 @@
                 <tr>
                   <td>
                     <div class="well">
-                      <p>You will need to first register an application in your <a href="https://dev.twitch.tv/console" target="_blank">Developer Console settings</a> to obtain a Client ID and enter the Redirect URL below.</p>
+                      <div>
+                        You will need to first register an application in your <a href="https://dev.twitch.tv/console" target="_blank">Developer Console settings</a> to obtain a Client ID and enter the Redirect URL below.
+                      </div>
                       <div>
                         <input class="span9" type="text" id="clientID" placeholder="Client ID">
                       </div>
                       <div>
-                        <label>Scopes: <small><a href="https://dev.twitch.tv/docs/authentication/scopes/#twitch-access-token-scopes" target="_blank">List of available scopes</a></small></label><br>
+                        <div>Scopes: <small><a href="https://dev.twitch.tv/docs/authentication/scopes/#twitch-access-token-scopes" target="_blank">List of available scopes</a></small></div>
                         <input class="span9" type="text" id="scopes" placeholder="user:read channel:editor (space separated)">
                       </div>
                       <div>
-                        <label>Redirect URL: </label>
-                        <code>https://makakiyoanju.github.io/twitch/oauth</code>
+                        Redirect URL: <code>https://makakiyoanju.github.io/twitch/oauth</code>
                       </div>
-                      <br><br>
                       <div style="padding-bottom:10px;">
                         <input class="btn btn-primary" type="button" value="Connect" onclick="sendRequest();">
                       </div>
