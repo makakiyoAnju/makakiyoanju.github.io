@@ -1,15 +1,20 @@
 @import url("https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.compat.css");
 
 @font-face {
-  font-family: 'Duplet Round';
-  src: url(../fonts/DupletRounded-Semibold.otf');
+  font-family: 'Duplet Round Semibold';
+  src: url('../fonts/DupletRounded-Semibold.otf');
+}
+
+@font-face {
+  font-family: 'Duplet Round Bold';
+  src: url('../fonts/DupletRounded-Bold.otf');
 }
 
 * {
   margin: 0;
   padding: 0;
   
-  font-family: 'Duplet Round';
+  font-family: 'Duplet Round Semibold';
   font-size: 16px;
   
   line-height: 1em;
