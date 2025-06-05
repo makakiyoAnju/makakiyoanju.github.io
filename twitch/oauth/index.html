@@ -9,6 +9,26 @@
       referrerpolicy="no-referrer">
     </script>
     <style>
+      * {
+        vertical-align: middle;
+      }
+
+      a {
+        color: #9147ff;
+      }
+      a:link {
+        text-decoration: none;
+      }
+      a:visited {
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: none;
+      }
+      a:active {
+        text-decoration: none;
+      }
+      
       th {
         margin: 1em;
         
@@ -16,21 +36,24 @@
       }
 
       small {
-        font-size: 0.5em;
+        font-size: 0.9em;
       }
-
-      code {      
-        color: rgba(0, 0, 0, 0.1);
+      
+      code, input {
+        border: 1px solid #000;
+        border-radius: 1em;
+      }
+      
+      code {
+        padding: 0.5em 1em;
+        
+        color: rgba(0, 0, 0, 0.5);
 
         background: lightgrey;
-        border-box: 1px solid #000;
-        border-radius: 1em;
       }
 
       input {
-        padding: 0.5em 1em;
-        
-        border-radius: 1em;
+        padding: 1em;
       }
     </style>
     <script type="text/javascript" language="javascript">
@@ -85,23 +108,27 @@
                   <td>
                     <div class="well">
                       <p>You will need to first register an application in your <a href="https://dev.twitch.tv/console" target="_blank">Developer Console settings</a> to obtain a Client ID and enter the Redirect URL below.</p>
-                      <p>
+                      <div>
                         <label>Client ID</label><br>
                         <input class="span9" type="text" id="clientID">
-                      </p>
-                      <p>
+                      </div>
+                      <div>
                         <label>Scopes: <small><a href="https://dev.twitch.tv/docs/authentication/scopes/#twitch-access-token-scopes" target="_blank">List of available scopes</a></small></label><br>
                         <input class="span9" type="text" id="scopes" placeholder="user:read channel:editor (space separated)">
-                      </p>
-                      <p>
+                      </div>
+                      <div>
                         <label>Redirect URL:</label><br>
                         <code>https://makakiyoanju.github.io/twitch/oauth</code>
-                      </p>
+                      </div>
                       <br><br>
                       <div style="padding-bottom:10px;">
                         <input class="btn btn-primary" type="button" value="Connect" onclick="sendRequest();">
                       </div>
-                      <p><small>(Technical: This application uses the <a href="https://dev.twitch.tv/docs/authentication/getting-tokens-oauth/#implicit-grant-flow" target="_blank">implicit grant flow</a> for the Twitch API to retrieve your token. This means that your token is only ever visible to your browser and not the server.)</small></p>
+                      <div>
+                        <small>
+                          (Technical: This application uses the <a href="https://dev.twitch.tv/docs/authentication/getting-tokens-oauth/#implicit-grant-flow" target="_blank">implicit grant flow</a> for the Twitch API to retrieve your token. This means that your token is only ever visible to your browser and not the server.)
+                        </small>
+                      </div>
                     </div>
                   </td>
                 </tr>
