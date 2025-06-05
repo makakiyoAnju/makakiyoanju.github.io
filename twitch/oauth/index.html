@@ -93,9 +93,12 @@
         var clientID = $('#clientID').val();
         var scopes = $('#scopes').val();
 
-        var url = `https://id.twitch.tv/oauth2/authorize?response_type=token&client_id=${clientID}&redirect_uri=https://makakiyoanju.github.io/twitch/oauth/&scope=${encodeURIComponent(scopes)}`;
-
-        document.location = url;
+        if (clientID === "") {
+          alert("Missing Client ID. Please provide from your Twitch Developer Console.");
+        } else {
+          var url = `https://id.twitch.tv/oauth2/authorize?response_type=token&client_id=${clientID}&redirect_uri=https://makakiyoanju.github.io/twitch/oauth/&scope=${encodeURIComponent(scopes)}`;
+          document.location = url;
+        }
       }
     </script>
   </head>
