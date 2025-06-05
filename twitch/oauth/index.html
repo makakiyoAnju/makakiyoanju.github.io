@@ -2,6 +2,7 @@
   <head>
     <meta charset="utf-8">
     <title>Twitch OAuth Token Generator</title>
+    <link rel="stylesheet" href="../../../css/style.css">
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" 
       integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" 
       crossorigin="anonymous" 
@@ -23,7 +24,7 @@
         var clientID = $('#clientID').val();
         var scopes = $('#scopes').val();
 
-        var url = 'https://id.twitch.tv/oauth2/authorize?response_type=token&client_id='+ clientID +'&redirect_uri=https://makakiyoanju.github.io/twitch/oauth/&scope=' + encodeURIComponent(scopes);
+        var url = `https://id.twitch.tv/oauth2/authorize?response_type=token&client_id=${clientID}&redirect_uri=https://makakiyoanju.github.io/twitch/oauth/&scope=${encodeURIComponent(scopes)}`;
 
         document.location = url;
       }
