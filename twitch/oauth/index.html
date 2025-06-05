@@ -9,12 +9,9 @@
       referrerpolicy="no-referrer">
     </script>
     <style>
-      * {
-        vertical-align: middle;
-      }
-
       a {
         color: #9147ff;
+        font-size: inherit;
       }
       a:link {
         text-decoration: none;
@@ -40,20 +37,37 @@
       }
       
       code, input {
+        padding: 0.5em 1em;
+
+        text-align: center;
+        
         border: 1px solid #000;
         border-radius: 1em;
       }
+      label {
+        margin: 0.5em 0;
+      }
       
-      code {
-        padding: 0.5em 1em;
-        
+      code {        
         color: rgba(0, 0, 0, 0.5);
 
         background: lightgrey;
       }
 
       input {
-        padding: 1em;
+        
+      }
+      input.span9 {
+        
+      }
+      input.btn {
+        display: block;
+
+        margin: auto;
+      }
+
+      div.well p {
+        margin: 0.5em 0;
       }
     </style>
     <script type="text/javascript" language="javascript">
@@ -90,7 +104,7 @@
                 </tr>
                 <tr>
                   <td>
-                    <div style="text-align:center;padding-bottom:10px;">
+                    <div style="text-align: center; padding-bottom: 10px;">
                       <p>Your OAuth token:</p>
                       <code id="tokenDisplay"></code>
                       <br>
@@ -109,15 +123,14 @@
                     <div class="well">
                       <p>You will need to first register an application in your <a href="https://dev.twitch.tv/console" target="_blank">Developer Console settings</a> to obtain a Client ID and enter the Redirect URL below.</p>
                       <div>
-                        <label>Client ID</label><br>
-                        <input class="span9" type="text" id="clientID">
+                        <input class="span9" type="text" id="clientID" placeholder=">Client ID">
                       </div>
                       <div>
                         <label>Scopes: <small><a href="https://dev.twitch.tv/docs/authentication/scopes/#twitch-access-token-scopes" target="_blank">List of available scopes</a></small></label><br>
                         <input class="span9" type="text" id="scopes" placeholder="user:read channel:editor (space separated)">
                       </div>
                       <div>
-                        <label>Redirect URL:</label><br>
+                        <label>Redirect URL: </label>
                         <code>https://makakiyoanju.github.io/twitch/oauth</code>
                       </div>
                       <br><br>
